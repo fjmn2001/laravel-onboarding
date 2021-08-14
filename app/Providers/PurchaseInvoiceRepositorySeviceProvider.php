@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class InvoiceRepositoryServiceProvider extends ServiceProvider
+class PurchaseInvoiceRepositorySeviceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -14,8 +14,9 @@ class InvoiceRepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            'App\Repositories\Interfaces\BaseRepositoryInterface',
-            'App\Repositories\InvoiceRepository'
+            'Src\PurchaseInvoice\Domain\Contract\PurchaseInvoiceRepository',
+            'Src\PurchaseInvoice\Infrastructure\Repository\PurchaseInvoiceMysqlRepository'
+
         );
     }
 
@@ -29,3 +30,4 @@ class InvoiceRepositoryServiceProvider extends ServiceProvider
         //
     }
 }
+
